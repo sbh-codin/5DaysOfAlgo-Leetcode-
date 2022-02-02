@@ -1,1 +1,15 @@
-
+# Brute Force Solution
+class Solution:
+    def countGoodRectangles(self, rectangles: List[List[int]]) -> int:
+       # create a variable for sstoring max lencth
+        maxLen = 0
+        count = 0
+        for i in rectangles:
+            temp = min(i[0],i[1])
+            if maxLen < temp:
+                maxLen = temp
+        for i in rectangles:
+            temp = min(i[0],i[1])
+            if temp >= maxLen:
+                count += 1
+        return count
