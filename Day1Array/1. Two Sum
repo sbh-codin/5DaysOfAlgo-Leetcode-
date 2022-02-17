@@ -1,0 +1,14 @@
+#IMPORTANT NOTE - Using hashmap
+#                 We move with an assumption that a pair exists in the List L whose sum is equal to target i.e. xa + xb = target => xa = target - xb.
+#                 Now we push target - xb on a dictionary{L[i],i} if target - xb is not in the dictionary already. ( where i is the index of each list element )
+#                 else we return the index of pair.
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {}
+        for i in range(len(nums)):
+            if nums[i] in hashmap:
+                return [hashmap[nums[i]],i]
+            else:
+                hashmap[target-nums[i]] = i
+                
