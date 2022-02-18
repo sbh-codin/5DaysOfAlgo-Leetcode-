@@ -1,0 +1,12 @@
+class Solution:
+    def diagonalSum(self, mat: List[List[int]]) -> int:
+        sum = 0
+        length = len(mat)
+        for i in range(length):
+            sum += mat[i][(length-1) - i]
+        for i in range(length):
+            sum += mat[i][i]
+        if length % 2 != 0:
+            sum = sum - mat[(length)//2][(length)//2]
+
+        return sum
